@@ -35,6 +35,17 @@ def check_movie_in_urls(urls_file, movie_name, movie_year=None):
     with open(urls_file, 'r') as file:
         domains = file.readlines()
 
+    first_serieslow = movie_name[0].lower()
+
+    for domain in domains:
+        domain = domain.strip()
+        if domain:  # Check if the line is not empty
+            url = f"{domain}/{first_serieslow}/{movie_name.replace(' ', '.')}.{movie_year}"
+            is_available = check_url_availability(url)
+            if is_available:
+                print(f"Subdomain URL: {url} is available")
+                break
+        
     for domain in domains:
         domain = domain.strip()
         if domain:  # Check if the line is not empty

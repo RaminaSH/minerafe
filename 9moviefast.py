@@ -14,7 +14,7 @@ def check_url_availability(url, timeout=10):
         return False
 
 
-def get_first_available(urls, max_workers=20):
+def get_first_available(urls, max_workers=50):
     """
     به کمک ThreadPoolExecutor همه‌ی URLهای داده شده را به صورت موازی بررسی می‌کند
     و اولین URL معتبر را برمی‌گرداند.

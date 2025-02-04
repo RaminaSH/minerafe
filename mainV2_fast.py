@@ -9,7 +9,7 @@ def check_url_availability(url, timeout=10):
         # در نظر گرفتن کدهای موفقیت‌آمیز (< 400)
         return response.status_code < 400
     except requests.RequestException as e:
-        print(f"Error checking {url}: {e}")
+        print(f"Error checking {url}")
         return False
 
 

@@ -41,7 +41,7 @@ def check_series(urls_file, name, sal):
         url_list.append(f"https://{domain}/{first_serieslow}/{name}")
 
     # بررسی همزمان URLها
-    with ThreadPoolExecutor(max_workers=20) as executor:
+    with ThreadPoolExecutor(max_workers=50) as executor:
         future_to_url = {executor.submit(check_url_availability, url): url for url in url_list}
         for future in as_completed(future_to_url):
             url = future_to_url[future]
